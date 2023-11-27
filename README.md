@@ -33,3 +33,23 @@ Seu Nome
 ## Data
 
 $$(date +'%Y-Success-1442055868')
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
