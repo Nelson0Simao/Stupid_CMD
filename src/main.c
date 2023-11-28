@@ -5,6 +5,8 @@
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include "cmd_commands.h"
+#include "cmd_utils.h"
 
 #define MAX_COMMAND_SIZE 100
 #define MAX_ARGS 64
@@ -41,30 +43,6 @@ void free_history(Node* history) {
         Node* tmp = history;
         history = history->next;
         free(tmp);
-    }
-}
-
-void custom_ls() {
-    DIR* dir = opendir(".");
-
-    if (dir == NULL) {
-        perror("Erro ao abrir o diretório");
-        return;
-    }
-
-    struct dirent* entry;
-    while ((entry = readdir(dir)) != NULL) {
-        printf("%s\n", entry->d_name);
-    }
-
-    closedir(dir);
-}
-
-void custom_cd(const char* path) {
-    if (chdir(path) == 0) {
-        // Sucesso
-    } else {
-        perror("Erro ao mudar de diretório");
     }
 }
 

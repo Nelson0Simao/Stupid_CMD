@@ -53,3 +53,19 @@ O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
 ## Número de Diretórios
 
 O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+
+## Número de Diretórios
+
+O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
