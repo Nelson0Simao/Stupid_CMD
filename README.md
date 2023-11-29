@@ -1,39 +1,75 @@
-# Projeto Exemplo
+Certainly! Here's a simple documentation template with a nice header for the "Stuped_CMD" library:
 
-Este é um projeto de exemplo criado com o programa de inicialização em C.
+---
 
-## Compilação e Execução
+# Stuped_CMD Documentation
 
-Para compilar o projeto, utilize o comando make:
+## User: SrRoot
+## Date: 29/11/2023
 
-```bash
-make
-```
+## Overview
 
-Para executar o programa, use:
+Stuped_CMD is a simple C library that provides basic command-line functionalities, including a command history, custom commands, and the ability to execute external commands. This documentation outlines the basic usage, allowed commands, and potential limitations.
 
-```bash
-make run
-```
+## Usage
 
-Para limpar os arquivos gerados, execute:
+1. **Including the Library:**
 
-```bash
-make clean
-```
+    ```c
+    #include "stuped_cmd.h"
+    ```
 
-## Número de Diretórios
+2. **Initializing the Command History:**
 
-O projeto contém $$(shell find . -type d -not -path '*/.*' | wc -l) diretórios.
+    ```c
+    Node* history = NULL; // Declare a history pointer
+    ```
 
-## Autor
+3. **Adding Commands to History:**
 
-Seu Nome
+    ```c
+    history = add_history(history, "your_command_here");
+    ```
 
-## Data
+4. **Showing Command History:**
 
-$$(date +'%Y-Success-1442055868')
+    ```c
+    show_history(history);
+    ```
 
-## Número de Diretórios
+5. **Executing Commands:**
 
-O projeto contém $(shell find . -type d -not -path */.* | wc -l) diretórios.
+    - **Built-in Commands:**
+        - `exit`: Exit the command-line interface.
+        - `history`: Display command history.
+        - `ls`: List files in the current directory.
+        - `cd <directory>`: Change the current directory.
+        - `pwd`: Print the current working directory.
+        - `clear`: Clear the console screen.
+        - `mkdir <directory>`: Create a new directory.
+        - `touch <file>`: Create a new empty file.
+
+    - **External Commands:**
+        ```c
+        execute_external_command("your_external_command_here");
+        ```
+
+6. **Freeing Command History:**
+
+    ```c
+    free_history(history);
+    ```
+
+## Limitations
+
+- The library is designed for basic command-line interactions and may not handle complex scenarios.
+- External command execution relies on the underlying system's capabilities and may have limitations.
+
+## Notes
+
+- Customize the main loop in the example to fit your application's needs.
+- Refer to the library functions for more details on each command.
+
+Feel free to integrate Stuped_CMD into your project and adapt it as needed!
+
+---
