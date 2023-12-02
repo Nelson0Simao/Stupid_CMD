@@ -1,24 +1,16 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -pedantic -Wimplicit-function-declaration
-SRCDIR = src
-OBJDIR = obj
-BINDIR = build
-INCDIR = include
-TARGET = $(BINDIR)/my_shell
-SRC = $(wildcard $(SRCDIR)/*.c)
-OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+BUILD_DIR = build
 
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) $^ -o $@
+all: ninja run
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
+ninja:
+	meson setup $(BUILD_DIR)
+	ninja -C $(BUILD_DIR)
 
-.PHONY: clean
-
-run:
-	./$(TARGET)
+run: ninja
+	./$(BUILD_DIR)/exe
 
 clean:
-	rm -rf $(OBJDIR)/*.o $(BINDIR)/*
+	meson setup --wipe $(BUILD_DIR)
+
+.PHONY: all run clean
 
