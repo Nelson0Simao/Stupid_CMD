@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -pedantic -Wimplicit-function-declaration
+CFLAGS = -Wall -Wextra -std=c99 -pedantic 
 SRCDIR = src
 OBJDIR = obj
 BINDIR = build

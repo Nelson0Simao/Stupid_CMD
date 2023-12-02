@@ -1,27 +1,16 @@
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include <stdbool.h>
-
-#define MAX_PASSWD 20
-#define MAX_USERNAME 20
-
-struct t_user {
-    char user_name[MAX_USERNAME];
-    char passwd[MAX_PASSWD];
-};
-
-struct t_input_data {
-    char user_name[20];
-    char passwd[20];
-};
+#include "cmd_utils.h"
 
 bool is_validLogin(const struct t_input_data *input, const struct t_user *user){
-//    printf("\n [DEBUGGER]# username: %s password: %s\n", input->user_name, user->passwd);
+    //printf("\n [DEBUGGER]# username: %s password: %s\n", input->user_name, input->passwd);
     if( input == NULL || user == NULL ){
 
         return false;
     }
-    if (strcmp(input->user_name, user->passwd) == 0 && strcmp(input->user_name, user->passwd) == 0) {
+    if (strcmp(input->user_name, user->user_name) == 0 && strcmp(input->passwd, user->passwd) == 0) {
 
         return true;
     }else{
@@ -30,5 +19,4 @@ bool is_validLogin(const struct t_input_data *input, const struct t_user *user){
     }
     return false;
 }
-//int custom_login(){
 
