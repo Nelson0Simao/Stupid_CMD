@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/types.h>
@@ -11,10 +12,18 @@
 #define MAX_COMMAND_SIZE 100
 #define MAX_ARGS 64
 
+#define MAX_PASSWD 20
+#define MAX_USERNAME 20
+
 typedef struct Node {
     char text[MAX_COMMAND_SIZE];
     struct Node* next;
 } Node;
+
+struct t_input_data {
+    char user_name[20];
+    char passwd[20];
+};
 
 Node* add_history(Node* history, const char* command) {
     Node* new_node = (Node*)malloc(sizeof(Node));
@@ -108,9 +117,39 @@ int main(void) {
     char command[MAX_COMMAND_SIZE];
     Node* history = NULL;
 
+    struct t_user client_connet;
+
+    strcpy(client_connet.user_name, "test");
+    strcpy(client_connet.passwd, "test");
+
+    struct t_input_data client_input;
+    printf("##########################################\n");
+    printf("=======         Stuped CMD      =========\n");
+    printf("##########################################\n");
+    
+    printf("username: ");
+
+    fgets(client_input.user_name, sizeof(client_input.user_name), stdin);
+    client_input.user_name[strcspn(client_input.user_name, "\n")] = '\0';
+
+    printf("password: ");
+    fgets(client_input.passwd, sizeof(client_input.passwd), stdin);
+    client_input.passwd[strcspn(client_input.passwd, "\n")] = '\0';
+
+    // loggin user
+        if (is_validLogin(&client_input, &client_connet)){
+
+            printf("wellcame %s\n", client_input.user_name);
+        }else {
+            exit(0);
+        }
     while (1) {
         custom_pwd();  // Mostra o diretório atual
 
+        if (is_validLogin(&client_input, &client_connet)){
+        }else {
+            exit(0);
+        }
         fgets(command, sizeof(command), stdin);
         command[strcspn(command, "\n")] = '\0';
 
