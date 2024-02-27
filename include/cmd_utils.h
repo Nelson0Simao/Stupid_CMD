@@ -18,7 +18,6 @@ struct t_input_data {
 
 void custom_ls();
 void custom_cd(const char* path);
-bool is_validLogin(const struct t_input_data *input, const struct t_user *user);
 
 #endif
 
