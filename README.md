@@ -81,4 +81,3 @@ Sinta-se à vontade para integrar o Stupid_CMD em seu projeto e adaptá-lo confo
 
 5. **Personalização do prompt:** Permitir que os usuários personalizem o prompt de comando com informações como nome de usuário, diretório atual, hora, etc., para tornar a interface mais informativa e esteticamente agradável.
 
-Você pode usar essa lista diretamente em seu arquivo README.md para documentar as funcionalidades que serão adicionadas ao Stupid_CMD.
