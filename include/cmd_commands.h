@@ -1,18 +1,11 @@
+#ifndef CMD_COMMANDS_H
+#define CMD_COMMANDS_H
+
 #include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-#include <unistd.h>
-#include <dirent.h>
-#include <sys/types.h>
 #include <sys/wait.h>
-#include <sys/stat.h>
 
-#ifndef SHELL_COMMANDS_H
-#define SHELL_COMMANDS_H
-
+// Protótipo da função para executar comandos externos
 void execute_external_command(const char* command);
 
-#endif
+#endif /* CMD_COMMANDS_H */
 

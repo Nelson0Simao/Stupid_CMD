@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -pedantic 
 SRCDIR = src
 OBJDIR = obj
-BINDIR = build
+BINDIR = bin
 INCDIR = include
 TARGET = $(BINDIR)/my_shell
 SRC = $(wildcard $(SRCDIR)/*.c)

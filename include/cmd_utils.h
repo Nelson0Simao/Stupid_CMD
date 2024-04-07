@@ -1,23 +1,35 @@
+#ifndef CMD_UTILS_H
+#define CMD_UTILS_H
+
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
+#include <dirent.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
-#define MAX_PASSWD 20
-#define MAX_USERNAME 20
+#define MAX_COMMAND_SIZE 100
 
-#ifndef SHELL_UTILS_H
-#define SHELL_UTILS_H
+// Definição do tipo Node
+typedef struct Node {
+    char text[MAX_COMMAND_SIZE];
+    struct Node* next;
+} Node;
 
-struct t_user {
-    char user_name[MAX_USERNAME];
-    char passwd[MAX_PASSWD];
-};
-
-struct t_input_data {
-    char user_name[MAX_PASSWD];
-    char passwd[MAX_PASSWD];
-};
-
+// Protótipos das funções relacionadas a comandos utilitários
 void custom_ls();
 void custom_cd(const char* path);
+void custom_pwd();
+void custom_clear();
+void custom_mkdir(const char* dirname);
+void custom_touch(const char* filename);
 
-#endif
+// Protótipos das funções relacionadas ao histórico
+Node* add_history(Node* history, const char* command);
+void show_history(const Node* history);
+void free_history(Node* history);
+
+#endif /* CMD_UTILS_H */
 
